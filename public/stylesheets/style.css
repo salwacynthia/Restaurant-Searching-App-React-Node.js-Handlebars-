@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
+* {
+  margin: 0;
+  padding: 0
+}
+
+.index-total {
+  background-image: url("/images/bg-home.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 450px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.index-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: center;
+  justify-content: center;
+}
+
+h1 {
+  color: #ffb606;
+  font-family: "Playfair Display", serif;
+  font-size: 60px !important;
+  font-weight: 700;
+  font-style: italic
+}
+
+h2 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 35px !important;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.index-total p {
+  color: #ffb606;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+}
+
+.searchTerm {
+  width: 80%;
+  border: 5px solid #ffb606;
+  border-right: none;
+  padding-left: 200px;
+  height: 40px;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  color: rgb(0, 0, 0);
+}
+
+.searchTerm:focus {
+  color: #000000;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center
+}
+
+.searchButton {
+  width: 40px;
+  height: 50px;
+  border: 1px solid #ffb606;
+  background: #ffb606;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 30px;
+}
