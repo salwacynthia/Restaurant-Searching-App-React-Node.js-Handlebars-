@@ -1,0 +1,7 @@
+<!--giving the search result-->
+
+<h1>hello</h1>
+{{#each restaurants}}
+{{!-- <p><a href="../routes/restaurant.js">{{{result.item.title}}}</a></p> --}}
+<p><a href="../routes/restaurant.js">{{this.title}}</a></p>
+{{/each}}

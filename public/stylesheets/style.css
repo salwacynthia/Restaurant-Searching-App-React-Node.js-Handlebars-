@@ -1,0 +1,46 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.index-total img{
+  height : 100%;
+}
+.index-total {
+  position: relative;
+  width:80%;
+  height: auto;
+  display: inline-block;
+
+  /* Make the width of box same as image */
+ }
+.index-text {
+   text-align: center;
+   justify-content: center;
+   color:white;
+}
+
+
+ .index-total .index-text {
+  position: absolute;
+  /* z-index: 999; */
+   /* margin: 0 auto;
+  left: 0;
+  right: 0; */
+  top: 40%;
+  width: 60%;
+}  
+  /* Adjust this value to move the positioned div up and down */
+  /* text-align: center;
+/* Set the width of the positioned div */
+
+/*# sourceMappingURL=style.css.map */
+
+.search{
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  
+}

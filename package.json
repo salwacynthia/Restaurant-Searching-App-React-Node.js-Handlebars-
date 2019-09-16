@@ -8,6 +8,7 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "connect-ensure-login": "^0.1.1",
@@ -27,5 +28,20 @@
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "main": "app.js",
+  "bin": {
+    "project-app": "seeds.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julferbas/project-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julferbas/project-app/issues"
+  },
+  "homepage": "https://github.com/julferbas/project-app#readme",
+  "description": ""
 }
