@@ -1,5 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('IronGenerator JS imported successfully!');
+//   console.log('IronGenerator JS imported successfully!');
 
-}, false);
+// }, false);
+
+
+//REVIEW
+document.querySelector("form").onsubmit = event => {
+  // event.preventDefault();
+  const review = document.getElementById("review").value;
+  console.log(review);
+}
