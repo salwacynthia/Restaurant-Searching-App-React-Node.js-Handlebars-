@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const GitHubStrategy = require('passport-github').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");

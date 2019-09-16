@@ -34,10 +34,28 @@ passport.use(new GitHubStrategy({
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: "http://127.0.0.1:3000/auth/github/callback"
 },
-  function (accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+  // function (accessToken, refreshToken, profile, cb) {
+  //   User.findOrCreate({ githubId: profile.id }, function (err, user) {
+  //     return cb(err, user);
+  //   });
+  // }
+  (accessToken, refreshToken, profile, done) => {
+    // find a user with profile.id as githubId or create one
+    User.findOne({ githubId: profile.id })
+      .then(found => {
+        if (found !== null) {
+          // user with that githubId already exists
+          done(null, found);
+        } else {
+          // no user with that githubId
+          return User.create({ githubId: profile.id }).then(dbUser => {
+            done(null, dbUser);
+          });
+        }
+      })
+      .catch(err => {
+        done(err);
+      });
   }
 ));
 
@@ -47,9 +65,22 @@ passport.use(new FacebookStrategy({
   clientSecret: process.env.FACEBOOK_APP_SECRET,
   callbackURL: "http://localhost:3000/auth/facebook/callback"
 },
-  function (accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+  (accessToken, refreshToken, profile, done) => {
+    // find a user with profile.id as facebookId or create one
+    User.findOne({ facebookId: profile.id })
+      .then(found => {
+        if (found !== null) {
+          // user with that facebookId already exists
+          done(null, found);
+        } else {
+          // no user with that facebookId
+          return User.create({ facebookId: profile.id }).then(dbUser => {
+            done(null, dbUser);
+          });
+        }
+      })
+      .catch(err => {
+        done(err);
+      });
   }
 ));
