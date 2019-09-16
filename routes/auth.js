@@ -37,12 +37,15 @@ router.get(
 router.get('/facebook',
   passport.authenticate('facebook'));
 
-router.get('/auth/facebook/callback',
+router.get('/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function (req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   });
+// router.get('/auth/facebook/callback', () => {
+//   res.render("restaurantDetail");
+// });
 
 
 

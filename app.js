@@ -18,7 +18,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 mongoose
-  .connect('mongodb://localhost/project-app', { useNewUrlParser: true })
+  .connect('mongodb://localhost/hungry-hackers', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

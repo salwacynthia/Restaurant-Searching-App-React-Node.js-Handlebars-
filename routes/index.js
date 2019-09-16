@@ -1,6 +1,7 @@
 const express = require('express');
-const router  = express.Router();
-const Restaurant = require ('./restaurant')
+const router = express.Router();
+const Restaurant = require('./restaurant')
+const Review = require('../models/Review')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -33,8 +34,10 @@ router.get('/review', (req, res, next) => {
 });
 
 router.post('/review', (req, res, next) => {
-  const { id, username, review, date } = req.body;
-  const newReview = new Review({ id, username, review, date })
+  const { review } = req.body;
+  console.log(review);
+  console.log(req.user);
+  const newReview = new Review({ restaurantId: "restauranteId", username: req.user.username, review, date: new Date() })
   newReview.save()
     .then((review) => {
       res.redirect('restaurantDetail');
