@@ -7,20 +7,31 @@ a {
   color: #00B7FF;
 }
 
-
-.index-total{
-    position: relative;
+body{
+  position: relative;
   display: inline-block; /* Make the width of box same as image */
+  text-align: center;
+  justify-content: center;
+//  width: 960px;
+ margin: 0px auto;
 }
 
+@media only screen and (max-width: 959px) {
+   body{
+     width:100%;
+  }
+  img {
+    width:100%;
+  }
+}
 
-.index-total .index-text{
+.index-wrapper{
   position: absolute;
-  z-index: 999;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
   top: 40%; /* Adjust this value to move the positioned div up and down */
-  text-align: center;
-  width: 60%; /* Set the width of the positioned div */
+  left:20%;
+  // text-align: center;
+  // justify-content: center;
+  // width: 60%; /* Set the width of the positioned div */
+  color: white; 
+
 }

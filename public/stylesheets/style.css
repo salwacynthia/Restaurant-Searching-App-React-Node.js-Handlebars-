@@ -5,21 +5,25 @@ body {
 a {
   color: #00B7FF; }
 
-.index-total {
+body {
   position: relative;
   display: inline-block;
-  /* Make the width of box same as image */ }
+  /* Make the width of box same as image */
+  text-align: center;
+  justify-content: center;
+  margin: 0px auto; }
 
-.index-total .index-text {
+@media only screen and (max-width: 959px) {
+  body {
+    width: 100%; }
+  img {
+    width: 100%; } }
+
+.index-wrapper {
   position: absolute;
-  z-index: 999;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
   top: 40%;
   /* Adjust this value to move the positioned div up and down */
-  text-align: center;
-  width: 60%;
-  /* Set the width of the positioned div */ }
+  left: 20%;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
