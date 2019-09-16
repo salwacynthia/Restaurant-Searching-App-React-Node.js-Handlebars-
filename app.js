@@ -13,6 +13,9 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
 
+const User = require("./models/User");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 mongoose
   .connect('mongodb://localhost/project-app', { useNewUrlParser: true })

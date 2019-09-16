@@ -2,7 +2,7 @@
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input id="username" type="text" name="username" placeholder="Username">
 
   <br><br>
 
@@ -10,13 +10,18 @@
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
 
   <button>Create account</button>
-
+  <p>
+    <a href="/auth/github">Sign in via Github</a>
+  </p>
+  <p>
+    <a href="/auth/facebook">Sign in via Facebook</a>
+  </p>
   <p class="account-message">
     Do you already have an account?
     <a href="/auth/login">Login</a>
