@@ -27,14 +27,13 @@ router.get("/restaurantlist", (req, res, next) => {
 // // get a unique page for each restaurant by id
 router.get("/restaurants/:restaurantID", (req, res) => {
 const query = req.params.restaurantID;
-console.log(query)
-// console.log(restaurantID)
+console.log('query:' + query)
 
-axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
-//axios.get(`https://lookup.search.hereapi.com/v1/lookup?app_id=${appId}&app_code=${appCode}&id=here%3Apds%3Aplace%3A8408lxx5-fab6ca4f9e38039a775fd4dc13490a5e&lang=en-US`)
+// axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
+axios.get('https://lookup.search.hereapi.com/v1/lookup?app_id=${appId}&app_code=${appCode}&id=${query}')
 .then(val => {
-        console.log('promise:',val)
-    res.render("restaurantDetail.hbs", { restaurantDetail: val.data.search.context.location });
+        // console.log('promise:',val)
+    res.render("restaurantDetail.hbs", { restaurantDetail: val });
   }).catch(err=>console.log(err))
    
  });
