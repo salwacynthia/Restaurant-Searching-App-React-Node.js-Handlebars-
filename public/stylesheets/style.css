@@ -1,25 +1,48 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
-.index-total {
-  position: relative;
-  display: inline-block;
-  /* Make the width of box same as image */ }
-
-.index-total .index-text {
-  position: absolute;
-  z-index: 999;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 40%;
-  /* Adjust this value to move the positioned div up and down */
+.container {
+  background-image: url("/images/bg-home.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
-  width: 60%;
-  /* Set the width of the positioned div */ }
+  justify-content: center;
+  height: 100vh; }
+
+.index-wrapper {
+  color: white; }
+
+.form {
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  height: 30px; }
+
+.button {
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  height: 40px; }
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,26 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
+
+*{
+  margin: 0;
+  margin: 0
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  // padding: 50px;
+  //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #777;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400
+}
+
+h1 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 60px !important;
+  font-weight: 700;
+  font-style: italic
+}
+
+h2 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 42px !important;
+  font-weight: 700
 }
 
 a {
   color: #00B7FF;
 }
 
-
-.index-total{
-    position: relative;
-  display: inline-block; /* Make the width of box same as image */
+.container{
+  background-image: url("/images/bg-home.jpg"); 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  height:100vh;
 }
 
-
-.index-total .index-text{
-  position: absolute;
-  z-index: 999;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 40%; /* Adjust this value to move the positioned div up and down */
+.index-wrapper{
+   color: white; 
+}
+.form {
+  border-radius: 8px;
+  padding: 10px;
   text-align: center;
-  width: 60%; /* Set the width of the positioned div */
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  height: 30px;
+}
+
+.button{
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  height: 40px;
+}
+
+.search {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
