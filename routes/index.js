@@ -3,7 +3,7 @@ const router = express.Router();
 const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
 
-/* GET home page */
+/* HOME PAGE */
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -29,14 +29,30 @@ router.get('/', (req, res, next) => {
 //       res.render("restaurantDetails", { restaurant: rest });
 //     });
 // });
-router.get('/review', (req, res, next) => {
+
+
+//REVIEW PAGE
+
+const loginCheck = () => {
+  return (req, res, next) => {
+    // if (req.user)
+    if (req.isAuthenticated()) {
+      // if user is logged in, proceed to the next function
+      next();
+    } else {
+      // else if user is not logged in, redirect to /login
+      res.redirect("/auth/login");
+    }
+  };
+};
+
+
+router.get('/review', loginCheck(), (req, res, next) => {
   res.render('review');
 });
 
 router.post('/review', (req, res, next) => {
   const { review } = req.body;
-  console.log(review);
-  console.log(req.user);
   const newReview = new Review({ restaurantId: "restauranteId", username: req.user.username, review, date: new Date() })
   newReview.save()
     .then((review) => {
