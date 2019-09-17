@@ -1,9 +1,11 @@
 const axios = require('axios');
 const express = require('express');
-const router  = express.Router();
-const Restaurant = require ('./restaurant')
+const router = express.Router();
+const Restaurant = require('./restaurant')
+const Review = require('../models/Review')
+const Contact = require('../models/Contact')
 
-/* GET home page */
+/* HOME PAGE */
 router.get('/', (req, res, next) => {
   res.render('index'); //the search bar
 });
@@ -42,8 +44,8 @@ router.get('/review', (req, res, next) => {
 });
 
 router.post('/review', (req, res, next) => {
-  const { id, username, review, date } = req.body;
-  const newReview = new Review({ id, username, review, date })
+  const { review } = req.body;
+  const newReview = new Review({ restaurantId: "restauranteId", username: req.user.username, review, date: new Date() })
   newReview.save()
     .then((review) => {
       res.redirect('restaurantDetail');
@@ -53,7 +55,32 @@ router.post('/review', (req, res, next) => {
     })
 });
 
+/* ARTICLES */
+router.get('/articles', (req, res, next) => {
+  res.render('articles');
+});
+
+/* CONTACT */
+router.get('/contact', (req, res, next) => {
+  res.render('contact');
+});
+
+router.post('/contact', (req, res, next) => {
+  const { name, message } = req.body;
+  const newContact = new Contact({ name, message, date: new Date() })
+  newContact.save()
+    .then((contact) => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
 
 
+/* GAME */
+router.get('/game', (req, res, next) => {
+  res.render('game');
+});
 
 module.exports = router;

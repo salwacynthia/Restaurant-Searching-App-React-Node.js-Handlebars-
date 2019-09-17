@@ -48,7 +48,8 @@ passport.use(new GitHubStrategy({
           done(null, found);
         } else {
           // no user with that githubId
-          return User.create({ githubId: profile.id }).then(dbUser => {
+          console.log(profile);
+          return User.create({ githubId: profile.id, username: profile.username }).then(dbUser => {
             done(null, dbUser);
           });
         }
@@ -74,7 +75,8 @@ passport.use(new FacebookStrategy({
           done(null, found);
         } else {
           // no user with that facebookId
-          return User.create({ facebookId: profile.id }).then(dbUser => {
+          // console.log(profile);
+          return User.create({ facebookId: profile.id, username: profile.displayName }).then(dbUser => {
             done(null, dbUser);
           });
         }

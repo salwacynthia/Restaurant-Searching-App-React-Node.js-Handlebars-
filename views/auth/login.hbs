@@ -1,31 +1,37 @@
-<h2>Login</h2>
+<div>
+  <div class="log-img">
+    <img src="/images/welcome-bg.png" alt="Avocado plate">
+  </div>
+  <div class="log-form">
+    <h2>Login</h2>
+    <form action="/auth/login" method="POST" id="form-container">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="Username">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Username">
+      <br><br>
 
-  <br><br>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+      <br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <br><br>
 
-  <br><br>
+      <button>Login</button>
 
-  <button>Login</button>
+      <p class="account-message">
+        Don't have an account yet?
+        <a href="/auth/signup">Signup</a>
+      </p>
+      <p>
+        <a href="/auth/github"><button class="git-btn">Login via Github</button></a>
+      </p>
+      <p>
+        <a href="/auth/facebook"><button class="fb-btn">Login via Facebook</button></a>
+      </p>
+    </form>
+  </div>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-  <p>
-    <a href="/auth/github">Login via Github</a>
-  </p>
-  <p>
-    <a href="/auth/facebook"><img src="/images/facebook-login-button.png" alt="Log with Facebook"
-        style="width:130px;height:50px;"></a>
-  </p>
-</form>
+</div>

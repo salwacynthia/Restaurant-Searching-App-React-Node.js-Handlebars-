@@ -37,12 +37,15 @@ router.get(
 router.get('/facebook',
   passport.authenticate('facebook'));
 
-router.get('/auth/facebook/callback',
+router.get('/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function (req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   });
+// router.get('/auth/facebook/callback', () => {
+//   res.render("restaurantDetail");
+// });
 
 
 
@@ -55,6 +58,12 @@ router.post("/signup", (req, res, next) => {
   const password = req.body.password;
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
+    return;
+  }
+  if (password.length < 4) {
+    res.render("auth/signup", {
+      message: "Your password must be 4 char. min."
+    });
     return;
   }
 

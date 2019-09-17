@@ -1,8 +1,8 @@
 <div class="review">
-  <form action="post" method="">
-    <label for="review" id="review">Write your review:</label>
+  <form action="/review" method="post">
+    <label for="review">Write your review:</label>
     {{!-- <input type="text" name="review" id="review"> --}}
-    <textarea rows="10" cols="80" id="review"></textarea>
+    <textarea rows="10" cols="80" id="review" name="review"></textarea>
     <br>
     <input type="submit" value="Submit">
   </form>

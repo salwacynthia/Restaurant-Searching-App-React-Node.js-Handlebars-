@@ -1,5 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
+* {
+  margin: 0;
+  margin: 0; }
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #777;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400; }
+
+h1 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 60px !important;
+  font-weight: 700;
+  font-style: italic; }
+
+h2 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 42px !important;
+  font-weight: 700; }
 
 a {
   color: #00B7FF; }
