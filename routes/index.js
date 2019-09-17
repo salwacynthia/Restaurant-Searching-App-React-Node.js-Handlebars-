@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
+const Contact = require('../models/Contact')
 
 /* HOME PAGE */
 router.get('/', (req, res, next) => {
@@ -31,8 +32,7 @@ router.get('/', (req, res, next) => {
 // });
 
 
-//REVIEW PAGE
-
+//REVIEW PAGE - USERS ONLY
 const loginCheck = () => {
   return (req, res, next) => {
     // if (req.user)
@@ -63,7 +63,32 @@ router.post('/review', (req, res, next) => {
     })
 });
 
+/* ARTICLES */
+router.get('/articles', (req, res, next) => {
+  res.render('articles');
+});
+
+/* CONTACT */
+router.get('/contact', (req, res, next) => {
+  res.render('contact');
+});
+
+router.post('/contact', (req, res, next) => {
+  const { name, message } = req.body;
+  const newContact = new Contact({ name, message, date: new Date() })
+  newContact.save()
+    .then((contact) => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
 
 
+/* GAME */
+router.get('/game', (req, res, next) => {
+  res.render('game');
+});
 
 module.exports = router;

@@ -60,6 +60,12 @@ router.post("/signup", (req, res, next) => {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
+  if (password.length < 4) {
+    res.render("auth/signup", {
+      message: "Your password must be 4 char. min."
+    });
+    return;
+  }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
