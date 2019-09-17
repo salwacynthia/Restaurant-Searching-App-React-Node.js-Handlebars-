@@ -1,6 +1,6 @@
 <!--search form-->
 <div class="container">
-    <img src="/images/bg-home.jpg" alt="image">
+    {{!-- <img src="/images/bg-home-big.jpg" alt="image"> --}}
 <div class="index-wrapper">
       <h1>Hungry Hackers</h1>
       <h2>“One cannot think well, love well, sleep well, if one has not dined well.”</h2>
@@ -9,9 +9,11 @@
   
    <div class="search">
       <form action="/restaurantlist" method="GET">
-      <input type="text" name="search" placeholder="Search by cuisine">
+     
+      <input class="form" type="text" name="search" placeholder="Search by cuisine">
       <br>
-      <button type="submit" > Search restaurants near you</button>
+      <button class="button" type="submit" > Search restaurants near you</button>
+      
       </form>
   </div>
 </div>
