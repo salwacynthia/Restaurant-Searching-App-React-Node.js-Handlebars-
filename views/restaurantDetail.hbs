@@ -7,12 +7,13 @@
 <p>Opening hours: {{{extended.openingHours.text}}}</p>
 <p>Latitude, Longitude: {{#each location.position }}{{this}}, {{/each}}</p>
 {{/with}}
+
 {{#with review}}
 <p>Review: {{> reviewPartial this}}</p>  
 {{!-- reviw.hbs ke partial banate hobe --}}
 {{/with}}
 
-{{#with review}}
+{{#with map}}
 <p>map: {{> mapPartial this}}</p>  
 {{!-- reviw.hbs ke partial banate hobe --}}
 {{/with}}

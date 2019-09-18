@@ -1,4 +1,4 @@
-<div>
+<div class="log-container">
   <div class="log-img">
     <img src="/images/welcome-bg.png" alt="Avocado plate">
   </div>
@@ -17,19 +17,21 @@
       <div class="error-message">{{ message }}</div>
       {{/if}}
 
-      <br><br>
+      <br>
 
       <button>Login</button>
 
-      <p class="account-message">
-        Don't have an account yet?
-        <a href="/auth/signup">Signup</a>
-      </p>
+
+      <br>
       <p>
         <a href="/auth/github"><button class="git-btn">Login via Github</button></a>
       </p>
       <p>
         <a href="/auth/facebook"><button class="fb-btn">Login via Facebook</button></a>
+      </p>
+      <p class="account-message">
+        Don't have an account yet?
+        <a href="/auth/signup">Signup</a>
       </p>
     </form>
   </div>
