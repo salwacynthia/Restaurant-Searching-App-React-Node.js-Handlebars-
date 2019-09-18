@@ -1,7 +1,8 @@
 {{#with restaurantDetail}}
-<h1>{{address.street}} {{address.house}}</h1>
-<p>Address: {{vicinity}}</p>
-<p>Cuisine: {{tags}}</p>
-<p>Opening hours: {{openingHours}}</p>
+​
+<h1>{{location.address.street}} {{location.address.house}}</h1>
+<p>Address: {{{location.address.text}}}</p>
+<p>Cuisine: {{#each tags}} {{title}}, {{/each}}</p>
+<p>Opening hours: {{{extended.openingHours.text}}}</p>
+<p>Latitude, Longitude: {{#each location.position }}{{this}}, {{/each}}</p>
 {{/with}}
-
