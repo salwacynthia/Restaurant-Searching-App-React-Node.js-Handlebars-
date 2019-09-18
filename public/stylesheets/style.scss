@@ -32,8 +32,10 @@
   text-decoration: none;
 }
 
-@media (max-width: 600px) {
-  
+@media only screen and (max-width: 600px) {
+  .main-navbar{
+    position: absolute;
+  }
   .main-navbar a{
     font-size: 8px;
   }

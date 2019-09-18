@@ -4,9 +4,11 @@ const router = express.Router();
 const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
 const Contact = require('../models/Contact')
-// também adicionei essa parte
+
 const url = require('url');
-//acaba aqui
+
+
+const context = "Zmxvdy1pZD00NDliNzFmMi05NGIwLTUzMDItOWNmNC1mYjllNWE3ZTA4ZjJfMTU2ODc1Nzc4MDg3OV8yNTMyXzU4OTcmcmFuaz0xOQ";
 
 /* HOME PAGE */
 router.get('/', (req, res, next) => {
@@ -23,13 +25,13 @@ router.get("/restaurantlist", (req, res, next) => {
   // console.log(queryParameter);
   axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${queryParameter}`)
     .then(rest => {
-      // mudanças começam aqui
+
       rest.data.results.items.forEach(item => {
         const href = url.parse(item.href);
         console.log(href);
         item.id = href.pathname.substring(href.pathname.lastIndexOf("/") + 1);
       });
-      // terminam aqui
+
       res.render("restaurantList.hbs", { restaurantList: rest.data.results.items });
     }).catch(err => console.log(err))
 });
@@ -38,9 +40,16 @@ router.get("/restaurantlist", (req, res, next) => {
 // // get a unique page for each restaurant by id
 router.get("/restaurants/:restaurantID", (req, res) => {
   const query = req.params.restaurantID;
-  // troquei a url pra esssa /places/${query}
+
   axios.get(`https://places.cit.api.here.com/places/v1/places/${query}?app_id=${appId}&app_code=${appCode}`)
     .then(rest => {
+      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
+    }).catch(err => console.log(err))
+
+  // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
+  axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
+    .then(rest => {
+      // console.log('promise:',rest)
       res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
     }).catch(err => console.log(err))
 
