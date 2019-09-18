@@ -5,9 +5,6 @@ const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
 const Contact = require('../models/Contact')
 
-const url = require('url');
-
-
 const context = "Zmxvdy1pZD00NDliNzFmMi05NGIwLTUzMDItOWNmNC1mYjllNWE3ZTA4ZjJfMTU2ODc1Nzc4MDg3OV8yNTMyXzU4OTcmcmFuaz0xOQ";
 
 /* HOME PAGE */
@@ -22,16 +19,11 @@ const appId = process.env.APP_ID,  // .env file theke client id ar secret nicche
 // get all the restaurants in SERACH 
 router.get("/restaurantlist", (req, res, next) => {
   let queryParameter = req.query.search; // can be restaurant 
+  let category = "eat-drink";
   // console.log(queryParameter);
   axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${queryParameter}`)
     .then(rest => {
-
-      rest.data.results.items.forEach(item => {
-        const href = url.parse(item.href);
-        console.log(href);
-        item.id = href.pathname.substring(href.pathname.lastIndexOf("/") + 1);
-      });
-
+      // console.log(rest.data.results.items);
       res.render("restaurantList.hbs", { restaurantList: rest.data.results.items });
     }).catch(err => console.log(err))
 });
@@ -40,30 +32,31 @@ router.get("/restaurantlist", (req, res, next) => {
 // // get a unique page for each restaurant by id
 router.get("/restaurants/:restaurantID", (req, res) => {
   const query = req.params.restaurantID;
-
-  axios.get(`https://places.cit.api.here.com/places/v1/places/${query}?app_id=${appId}&app_code=${appCode}`)
-    .then(rest => {
-      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
-    }).catch(err => console.log(err))
+  console.log('query:' + query)
 
   // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
   axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
     .then(rest => {
       // console.log('promise:',rest)
-      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
+      Review.find({ restaurantId: query }, (error, review) => {
+        console.log(review);
+        res.render("restaurantDetail.hbs", { restaurantDetail: rest.data, review: review, loggedIn: req.user !== undefined, appCode, appId });
+      }).catch(err => res.render("restaurantDetail.hbs", { restaurantDetail: rest.data }))
+
     }).catch(err => console.log(err))
 
 });
-router.get('/review', (req, res, next) => {
+router.get('/review/:restaurantId', (req, res, next) => {
   res.render('review');
 });
 
-router.post('/review', (req, res, next) => {
+router.post('/review/:restaurantId', (req, res, next) => {
   const { review } = req.body;
-  const newReview = new Review({ restaurantId: "restauranteId", username: req.user.username, review, date: new Date() })
+  const restaurantId = req.params.restaurantId;
+  const newReview = new Review({ restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
   newReview.save()
     .then((review) => {
-      res.redirect('restaurantDetail');
+      res.redirect(`/restaurants/${restaurantId}`);
     })
     .catch((error) => {
       console.log(error);

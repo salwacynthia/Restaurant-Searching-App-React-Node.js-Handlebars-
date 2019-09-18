@@ -1,6 +1,10 @@
 <!--giving the search result-->
 
-<h1>hello</h1>
-{{#each restaurantList}}
-<p><a href="/restaurants/{{id}}">{{title}}{{vicinity}}</a></p>
-{{/each}}
+<div class="rest-list">
+  <div class="list">
+    {{#each restaurantList}}
+    <p><a href="/restaurants/{{id}}">{{{title}}}{{{vicinity}}}</a></p>
+    {{/each}}</div>
+
+
+</div>

@@ -1,24 +1,50 @@
+<div class="rest-detail">
+  <div class="details">
+    {{#with restaurantDetail}}
+    <div class="restaurant-img">
+      {{#if media.images.items.0.src }}
+      ​<img src="{{media.images.items.0.src}}" alt="">
+      {{else}}
+      <img src="/images/placeholder-image.jpg" alt="">
+      {{/if}}
+    </div>
+    <div class="restaurant-basic-info">
+      <h2>{{name}}</h2>
+      <br>
+      <p>Address: {{{location.address.text}}}</p>
+      <p>Cuisine: {{#each tags}} {{title}}, {{/each}}</p>
+      <p>Opening hours: {{{extended.openingHours.text}}}</p>
 
-{{#with restaurantDetail}}
-​
-<h1>{{location.address.street}} {{location.address.house}}</h1>
-<p>Address: {{{location.address.text}}}</p>
-<p>Cuisine: {{#each tags}} {{title}}, {{/each}}</p>
-<p>Opening hours: {{{extended.openingHours.text}}}</p>
-<p>Latitude, Longitude: {{#each location.position }}{{this}}, {{/each}}</p>
-{{/with}}
+    </div>
+    {{/with}}
+  </div>
 
-{{#with review}}
-<p>Review: {{> reviewPartial this}}</p>  
-{{!-- reviw.hbs ke partial banate hobe --}}
-{{/with}}
+  <div class="second-info">
 
-{{#with map}}
-<p>map: {{> mapPartial this}}</p>  
-{{!-- reviw.hbs ke partial banate hobe --}}
-{{/with}}
+    {{#if loggedIn}}
+    <div class="reviews">
+      {{#each review}}
+      <p>
+        {{username}} posted on {{date}}:
+        {{review}}
+      </p>
+      {{else}}
+      Be the first to
+      {{/each}}
+      <a href="/review/{{restaurantDetail.placeId}}">write a review!</a>
+    </div>
 
+    {{else}}
+    <div class="logg">
+      <p>Wanna see what people are talking about this restaurant?</p>
+      <a href="/auth/signup">Sign up!</a>
+    </div>
+    {{/if}}
+    <div class="map">
+      <img
+        src="https://image.maps.api.here.com/mia/1.6/mapview?app_id={{appId}}&app_code={{appCode}}&lon={{restaurantDetail.location.position.[1]}}&lat={{restaurantDetail.location.position.[0]}}&z=15&w=400&h=400"
+        alt="">
+    </div>
 
-
-
-
+  </div>
+</div>
