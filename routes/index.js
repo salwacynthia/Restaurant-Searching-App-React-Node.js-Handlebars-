@@ -5,6 +5,8 @@ const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
 const Contact = require('../models/Contact')
 
+const context = "Zmxvdy1pZD00NDliNzFmMi05NGIwLTUzMDItOWNmNC1mYjllNWE3ZTA4ZjJfMTU2ODc1Nzc4MDg3OV8yNTMyXzU4OTcmcmFuaz0xOQ";
+
 /* HOME PAGE */
 router.get('/', (req, res, next) => {
   res.render('index'); //the search bar
@@ -32,10 +34,10 @@ const query = req.params.restaurantID;
 console.log('query:' + query)
 
 // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
-axios.get('https://lookup.search.hereapi.com/v1/lookup?app_id=${appId}&app_code=${appCode}&id=${query}')
-.then(val => {
-        // console.log('promise:',val)
-    res.render("restaurantDetail.hbs", { restaurantDetail: val });
+axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
+.then(rest => {
+        // console.log('promise:',rest)
+    res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
   }).catch(err=>console.log(err))
    
  });
