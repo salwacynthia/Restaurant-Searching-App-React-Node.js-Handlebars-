@@ -1,9 +1,12 @@
 <div class="review">
-  <form action="/review" method="post">
-    <label for="review">Write your review:</label>
+  <form class="review-form" action="/review" method="post">
+    <label for="review">
+      <h5>Write your review:</h5>
+    </label><br><br>
     {{!-- <input type="text" name="review" id="review"> --}}
     <textarea rows="10" cols="80" id="review" name="review"></textarea>
     <br>
-    <input type="submit" value="Submit">
+    {{!-- <button>Submit</button> --}}
+    <input class="review-btn" type="submit" value="Submit">
   </form>
 </div>
