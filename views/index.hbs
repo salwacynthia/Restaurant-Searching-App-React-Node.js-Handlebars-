@@ -1,21 +1,26 @@
 <!--search form-->
 <div class="container">
-    {{!-- <img src="/images/bg-home-big.jpg" alt="image"> --}}
-<div class="index-wrapper">
-      <h1>Hungry Hackers</h1>
-      <h2>“One cannot think well, love well, sleep well, if one has not dined well.”</h2>
-      <p>― Virginia Woolf</p>
-  
-  
-   <div class="search">
-      <form action="/restaurantlist" method="GET">
-     
-      <input class="form" type="text" name="search" placeholder="Search by cuisine">
-      <br>
-      <button class="button" type="submit" > Search restaurants near you</button>
-      
-      </form>
-  </div>
+
+    <div class="index-wrapper">
+        {{!-- <h1>Hungry Hackers</h1> --}}
+        <div class="quote">
+            <h1>“One cannot think well, love well,<br>
+                sleep well, if one has not dined well.”</h1>
+            <p>― Virginia Woolf</p>
+        </div>
+
+
+
+        <div class="search">
+            <form action="/restaurantlist" method="GET">
+
+                <input class="form" type="text" name="search"
+                    placeholder="Find restaurants in Berlin by cuisine or area">
+                <br>
+                <button class="button" type="submit"> Search</button>
+
+            </form>
+        </div>
+    </div>
+
 </div>
-  
- </div>
