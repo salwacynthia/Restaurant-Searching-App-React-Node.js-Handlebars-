@@ -150,7 +150,7 @@ h4 {
 h5 {
   color: #131230;
   font-family: "Playfair Display", serif;
-  text-transform: capitalize;
+  // text-transform: capitalize;
   font-size: 20px !important;
   font-weight: 400
 }
@@ -482,6 +482,7 @@ input:focus, textarea:focus {
 }
 
 .contact {
+  width: 100%;
   display: flex;
   flex-direction: column
 }
