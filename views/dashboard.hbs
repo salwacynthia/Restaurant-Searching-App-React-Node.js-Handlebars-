@@ -1,0 +1,21 @@
+<div class="dashboard">
+  <div class="review-control">
+    <h5>Hi {{user.username}}!</h5><br>
+    <h4>Your reviews:</h4><br>
+    {{#each reviews}}
+    <div class="each-review">
+      <div>
+
+        <h6>{{restaurantName}}</h6><br>
+        <p>{{review}}</p>
+        <br>
+        posted on {{date}}:
+      </div>
+      <a href="/dashboard/review/{{_id}}">Delete</a>
+    </div>
+    {{else}}
+    <p>You have 0 reviews!</p>
+    {{/each}}
+  </div>
+
+</div>

@@ -60,10 +60,9 @@ body {
 footer {
   height: 2vh;
   text-align: center;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0; }
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
 
 .hungry-logo {
   font-family: Arial, Helvetica, sans-serif;
@@ -112,16 +111,26 @@ h4 {
 h5 {
   color: #131230;
   font-family: "Playfair Display", serif;
-  text-transform: capitalize;
   font-size: 20px !important;
   font-weight: 400; }
 
 h6 {
-  color: #fff;
+  color: black;
   font-size: 16px !important;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  text-transform: uppercase; }
+  font-weight: 500; }
+
+.error-page {
+  background-color: aqua;
+  background-image: url(../images/reservation.jpg);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center; }
+
+.error-page h5 {
+  padding-top: 80vh; }
 
 a:hover, a:focus {
   text-decoration: none; }
@@ -266,12 +275,13 @@ input:focus, textarea:focus {
   margin: 0 0 20 20; }
 
 .image-div {
-  background-color: aqua;
+  background-color: white;
   background-image: url(../images/reservation.jpg);
   height: 250px;
   display: flex; }
 
 .restaurantlist {
+  min-height: 62vh;
   margin-left: 40px;
   margin-right: 40px;
   border: #131230;
@@ -282,7 +292,6 @@ input:focus, textarea:focus {
   align-items: center; }
 
 .eachRestaurant {
-  border-radius: 14px;
   display: flex;
   float: left;
   align-items: center;
@@ -292,6 +301,7 @@ input:focus, textarea:focus {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 14px;
   border-style: double;
   border-color: #ffb606; }
 
@@ -377,27 +387,32 @@ input:focus, textarea:focus {
   font-size: 14px; }
 
 .contact {
+  width: 100%;
   display: flex;
   flex-direction: column; }
 
 .rest-detail {
-  background-image: url("/images/reservation-bg (1).jpg");
+  background-image: url(../images/reservation.jpg);
   background-repeat: no-repeat;
-  background-size: 100vw;
-  background-position-y: -260px; }
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center; }
 
 .details {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30vh; }
+  padding-top: 280px; }
 
 .restaurant-img img {
-  width: 22vw; }
+  height: 30vh; }
 
 .restaurant-basic-info {
+  display: flex;
+  flex-direction: column;
   padding-left: 2vw;
-  width: 22vw;
+  height: 30vh;
   font-size: 17px; }
 
 .second-info {
@@ -409,7 +424,7 @@ input:focus, textarea:focus {
 
 .logg {
   border: black solid 3px;
-  width: 22vw;
+  width: 400px;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -419,19 +434,29 @@ input:focus, textarea:focus {
 
 .logg a {
   color: white;
-  background-color: #ffb060;
+  background-color: #ffb606;
   font-size: 14px;
   border-radius: 4px;
   padding: 0.5vh 4.3vw;
   text-decoration: none; }
 
 .logg p {
-  padding-bottom: 20px; }
+  padding: 20px;
+  font-size: 15px; }
 
 .reviews {
   border: black solid 3px;
   width: 22vw;
-  height: 400px; }
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.reviews p {
+  padding: 5px 10px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column; }
 
 .map {
   padding-left: 2vw; }
@@ -439,10 +464,24 @@ input:focus, textarea:focus {
 @media only screen and (max-width: 600px) {
   .details {
     display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .restaurant-basic-info {
+    width: 80%;
+    display: flex;
     flex-direction: column; }
   .second-info {
+    width: 80%;
     display: flex;
-    flex-direction: column; } }
+    flex-direction: column;
+    align-items: center; }
+  .reviews {
+    width: 85%; }
+  .restaurant-img img {
+    width: 75vw;
+    padding: 1vw; }
+  .map {
+    padding: 1vw; } }
 
 .rest-list {
   background-image: url("/images/reservation-bg (1).jpg");
@@ -454,5 +493,68 @@ input:focus, textarea:focus {
   height: 60vh;
   width: 80vw;
   justify-content: center; }
+
+.game {
+  margin: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.game a {
+  text-decoration: none; }
+
+.game img {
+  height: 330px;
+  width: 300px; }
+
+.play-btn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #ffb606;
+  height: 60px;
+  width: 150px;
+  border-radius: 14px;
+  color: white;
+  font-size: 20px; }
+
+.game-header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center; }
+
+.game-page {
+  height: 98vh; }
+
+.game-header h5 {
+  font-style: italic;
+  font-size: 27px !important; }
+
+.dashboard {
+  min-height: 98vh;
+  background-image: url("/images/food-bg.png");
+  background-repeat: no-repeat;
+  background-position: right; }
+
+.review-control {
+  padding: 25vh 3vw 3vh 9vw; }
+
+.each-review {
+  padding: 30px; }
+
+.review-control h5 {
+  font-size: 30px !important; }
+
+.review-control h4 {
+  font-size: 20px !important; }
+
+.each-review p {
+  font-size: 18px !important; }
 
 /*# sourceMappingURL=style.css.map */

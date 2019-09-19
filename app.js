@@ -18,7 +18,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 mongoose
-  .connect('mongodb://localhost/hungry-hackers', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/hungry-hackers', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -77,6 +77,11 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  res.locals.session = req.session;
+  next();
+});
 
 const index = require('./routes/index');
 app.use('/', index);

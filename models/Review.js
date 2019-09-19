@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
   restaurantId: String,
+  restaurantName: String,
   username: String,
   review: String,
   date: String,

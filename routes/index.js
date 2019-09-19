@@ -37,20 +37,6 @@ router.get("/restaurants/:restaurantID", (req, res) => {
   // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
   axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
     .then(rest => {
-      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
-      console.log('promise:', rest.data.location.position)
-    }).catch(err => console.log(err))
-
-});
-
-// access to map
-router.get("/restaurants/:restaurantID", (req, res) => {
-  const query = req.params.restaurantID;
-  console.log('query:' + query)
-
-  // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
-  axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
-    .then(rest => {
       // console.log('promise:',rest)
       Review.find({ restaurantId: query }, (error, review) => {
         console.log(review);
@@ -60,14 +46,21 @@ router.get("/restaurants/:restaurantID", (req, res) => {
     }).catch(err => console.log(err))
 
 });
+
 router.get('/review/:restaurantId', (req, res, next) => {
-  res.render('review');
+  axios.get(`https://places.cit.api.here.com/places/v1/places/${req.params.restaurantId};context=${context}?app_id=${appId}&app_code=${appCode}`)
+    .then(rest => {
+      res.render('review', { restaurantDetail: rest.data });
+    })
+    .catch((error) => {
+      res.render('review')
+    });
 });
 
 router.post('/review/:restaurantId', (req, res, next) => {
-  const { review } = req.body;
+  const { review, restaurantName } = req.body;
   const restaurantId = req.params.restaurantId;
-  const newReview = new Review({ restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
+  const newReview = new Review({ restaurantName: restaurantName, restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
   newReview.save()
     .then((review) => {
       res.redirect(`/restaurants/${restaurantId}`);
@@ -103,6 +96,29 @@ router.post('/contact', (req, res, next) => {
 /* GAME */
 router.get('/game', (req, res, next) => {
   res.render('game');
+});
+
+
+
+router.get('/dashboard', (req, res, next) => {
+  if (req.user === undefined) {
+    res.redirect('/auth/login');
+  } else {
+    Review.find({ username: req.user.username }, (error, reviews) => {
+      res.render('dashboard', { reviews });
+    });
+  }
+});
+
+router.get('/dashboard/review/:id', (req, res) => {
+  if (req.user === undefined) {
+    res.redirect('/auth/login');
+  } else {
+    const id = req.params.id;
+    Review.deleteOne({ '_id': id, username: req.user.username }, (error, review) => {
+      res.redirect('/dashboard');
+    });
+  }
 });
 
 module.exports = router;

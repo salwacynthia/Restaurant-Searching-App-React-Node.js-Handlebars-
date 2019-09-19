@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -18,13 +18,17 @@
   <nav class="main-navbar">
     <img src="/images/HungryHackers.png" alt="HungryHackers Logo">
 
-    <a href="/">Home</a>
+    <a href="/">Search</a>
     <a href="/articles">Articles</a>
     <a href="/contact">Contact</a>
     <a href="/game">Game</a>
+    {{#if user}}
+    <a href="/dashboard">Dashboard</a>
+    <a href="/auth/logout">Logout</a>
+    {{else}}
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+    {{/if}}
   </nav>
 
   {{{body}}}
