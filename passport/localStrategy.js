@@ -32,7 +32,7 @@ passport.use(new LocalStrategy({
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+  callbackURL: "http://127.0.0.1:3000/auth/github/callback" || "https://hungryhackers.herokuapp.com/auth/github/callback"
 },
   // function (accessToken, refreshToken, profile, cb) {
   //   User.findOrCreate({ githubId: profile.id }, function (err, user) {
@@ -64,7 +64,7 @@ passport.use(new GitHubStrategy({
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
-  callbackURL: "http://localhost:3000/auth/facebook/callback"
+  callbackURL: "http://localhost:3000/auth/facebook/callback" || "https://hungryhackers.herokuapp.com/auth/facebook/callback"
 },
   (accessToken, refreshToken, profile, done) => {
     // find a user with profile.id as facebookId or create one
