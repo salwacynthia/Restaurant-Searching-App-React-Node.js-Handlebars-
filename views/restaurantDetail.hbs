@@ -25,13 +25,16 @@
     <div class="reviews">
       {{#each review}}
       <p>
-        {{username}} posted on {{date}}:
-        {{review}}
+        <h6>{{username}}</h6> posted on {{date}}:
+        {{review}}<br>
       </p>
       {{else}}
-      Be the first to
-      {{/each}}
-      <a href="/review/{{restaurantDetail.placeId}}">write a review!</a>
+      <p>
+        Be the first to
+        {{/each}}
+        <a href="/review/{{restaurantDetail.placeId}}">write a review!</a>
+      </p>
+
     </div>
 
     {{else}}

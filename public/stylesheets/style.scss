@@ -155,11 +155,10 @@ h5 {
 }
 
 h6 {
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 16px !important;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  text-transform: uppercase
+  font-weight: 500;
 }
 
 //ERROR
@@ -363,7 +362,7 @@ input:focus, textarea:focus {
 
 // RESTAURANT LIST
 .image-div {
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
   background-image: url(../images/reservation.jpg);
   height:250px;
   display: flex;
@@ -412,7 +411,7 @@ input:focus, textarea:focus {
   margin-left: 50px;
 }
 
-//REVIEW  
+//REVIEW PAGE (WRITE)
 
 .review {
   background-image: url("/images/food-bg.png");
@@ -446,6 +445,7 @@ input:focus, textarea:focus {
   color: white;
   font-size: 14px;
 }
+
 
 @media only screen and (max-width: 600px) {
   .review {
@@ -505,11 +505,14 @@ input:focus, textarea:focus {
 //RESTAURANT DETAIL
 
 .rest-detail {
-  background-color: aqua;
+  // background-color: aqua;
   background-image: url(../images/reservation.jpg);
-  height:250px;
+  // height:250px;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .details {
@@ -555,7 +558,7 @@ font-size: 17px;
 
 .logg a {
   color: white;
-  background-color: #ffb060;
+  background-color: #ffb606;
   font-size: 14px;
   // width: 18vw;
   // height: 4vh;
@@ -567,6 +570,7 @@ font-size: 17px;
 
 .logg p{
   padding: 20px;
+  font-size: 15px;
 }
 
 .reviews {
@@ -575,11 +579,23 @@ font-size: 17px;
   height: 400px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+}
+
+.reviews p{
+  padding: 5px 10px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .map{
   padding-left: 2vw;
 }
+
+
 
 @media only screen and (max-width: 600px) {
   .details {
@@ -598,9 +614,9 @@ font-size: 17px;
     flex-direction: column;
     align-items: center;
   }
-  // .logg {
-  //   width: 85%;
-  // }
+  .reviews {
+    width: 85%;
+  }
   .restaurant-img img{
     width: 75vw;
     padding: 1vw;
@@ -608,7 +624,7 @@ font-size: 17px;
   .map{
     padding: 1vw;
   }
-   
+  
 }
 
 

@@ -115,11 +115,10 @@ h5 {
   font-weight: 400; }
 
 h6 {
-  color: #fff;
+  color: black;
   font-size: 16px !important;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  text-transform: uppercase; }
+  font-weight: 500; }
 
 .error-page {
   background-color: aqua;
@@ -276,7 +275,7 @@ input:focus, textarea:focus {
   margin: 0 0 20 20; }
 
 .image-div {
-  background-color: aqua;
+  background-color: white;
   background-image: url(../images/reservation.jpg);
   height: 250px;
   display: flex; }
@@ -392,11 +391,12 @@ input:focus, textarea:focus {
   flex-direction: column; }
 
 .rest-detail {
-  background-color: aqua;
   background-image: url(../images/reservation.jpg);
-  height: 250px;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-content: center;
+  justify-content: center; }
 
 .details {
   display: flex;
@@ -433,19 +433,27 @@ input:focus, textarea:focus {
 
 .logg a {
   color: white;
-  background-color: #ffb060;
+  background-color: #ffb606;
   font-size: 14px;
   border-radius: 4px;
   padding: 0.5vh 4.3vw;
   text-decoration: none; }
 
 .logg p {
-  padding: 20px; }
+  padding: 20px;
+  font-size: 15px; }
 
 .reviews {
   border: black solid 3px;
   width: 22vw;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.reviews p {
+  padding: 5px 10px;
+  font-size: 15px;
   display: flex;
   flex-direction: column; }
 
@@ -466,6 +474,8 @@ input:focus, textarea:focus {
     display: flex;
     flex-direction: column;
     align-items: center; }
+  .reviews {
+    width: 85%; }
   .restaurant-img img {
     width: 75vw;
     padding: 1vw; }
