@@ -291,7 +291,6 @@ input:focus, textarea:focus {
   align-items: center; }
 
 .eachRestaurant {
-  border-radius: 14px;
   display: flex;
   float: left;
   align-items: center;
@@ -301,6 +300,7 @@ input:focus, textarea:focus {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 14px;
   border-style: double;
   border-color: #ffb606; }
 
@@ -492,5 +492,39 @@ input:focus, textarea:focus {
   height: 60vh;
   width: 80vw;
   justify-content: center; }
+
+.game {
+  margin: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.game a {
+  text-decoration: none; }
+
+.game img {
+  height: 330px;
+  width: 300px; }
+
+.play-btn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #ffb606;
+  height: 60px;
+  width: 150px;
+  border-radius: 14px;
+  font: 25px bold; }
+
+.game-header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -75,15 +75,15 @@ body {
   color: #777;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 400
-}
-
-footer {
-  height: 2vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    font-weight: 400;
+  }
+  
+  footer {
+    height: 2vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 // h1 {
@@ -380,9 +380,9 @@ input:focus, textarea:focus {
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
+  
 }
 .eachRestaurant{
-  border-radius: 14px;
   display: flex;
   float: left;
   align-items: center;
@@ -393,6 +393,7 @@ input:focus, textarea:focus {
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 14px;
   border-style: double;
   border-color: #ffb606;
   // background-image: linear-gradient(to right top, #ffb606, #fbb831, #f7ba49, #f3bc5d, #eebe6f, #f9bf86, #ffc29c, #ffc7b2, #ffd2d3, #ffe1ed, #fbf1fb, #ffffff);
@@ -641,4 +642,47 @@ font-size: 17px;
   height: 60vh;
   width: 80vw;
   justify-content: center
+}
+
+.game {
+  // background-color: #131230;
+  margin: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: #ffb606;
+  // border-radius: 14px;
+  // border-style: double;
+}
+.game a{
+  text-decoration: none;
+}
+.game img{
+  height:330px;
+  width: 300px;
+}
+
+.play-btn{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #ffb606;
+  height: 60px;
+  width: 150px;
+  border-radius: 14px;
+  font: 25px bold;
+  // background-color: red;
+
+}
+.game-header{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
 }
