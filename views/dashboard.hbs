@@ -1,10 +1,11 @@
 <div class="dashboard">
   <div class="review-control">
-    <h5>Hi {{user.username}}!</h5>
+    <h5>Hi {{user.username}}!</h5><br>
+    <h4>Your reviews:</h4><br>
     {{#each reviews}}
     <div class="each-review">
       <div>
-        <h4>Your reviews:</h4><br><br>
+
         <h6>{{restaurantName}}</h6><br>
         <p>{{review}}</p>
         <br>
