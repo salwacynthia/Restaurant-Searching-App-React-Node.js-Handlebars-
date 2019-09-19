@@ -37,20 +37,6 @@ router.get("/restaurants/:restaurantID", (req, res) => {
   // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
   axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
     .then(rest => {
-      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
-      console.log('promise:', rest.data.location.position)
-    }).catch(err => console.log(err))
-
-});
-
-// access to map
-router.get("/restaurants/:restaurantID", (req, res) => {
-  const query = req.params.restaurantID;
-  console.log('query:' + query)
-
-  // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
-  axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
-    .then(rest => {
       // console.log('promise:',rest)
       Review.find({ restaurantId: query }, (error, review) => {
         console.log(review);

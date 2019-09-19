@@ -111,7 +111,6 @@ h4 {
 h5 {
   color: #131230;
   font-family: "Playfair Display", serif;
-  text-transform: capitalize;
   font-size: 20px !important;
   font-weight: 400; }
 
@@ -121,6 +120,18 @@ h6 {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   text-transform: uppercase; }
+
+.error-page {
+  background-color: aqua;
+  background-image: url(../images/reservation.jpg);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center; }
+
+.error-page h5 {
+  padding-top: 80vh; }
 
 a:hover, a:focus {
   text-decoration: none; }
@@ -376,27 +387,31 @@ input:focus, textarea:focus {
   font-size: 14px; }
 
 .contact {
+  width: 100%;
   display: flex;
   flex-direction: column; }
 
 .rest-detail {
-  background-image: url("/images/reservation-bg (1).jpg");
-  background-repeat: no-repeat;
-  background-size: 100vw;
-  background-position-y: -260px; }
+  background-color: aqua;
+  background-image: url(../images/reservation.jpg);
+  height: 250px;
+  display: flex;
+  flex-direction: column; }
 
 .details {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30vh; }
+  padding-top: 280px; }
 
 .restaurant-img img {
-  width: 22vw; }
+  height: 30vh; }
 
 .restaurant-basic-info {
+  display: flex;
+  flex-direction: column;
   padding-left: 2vw;
-  width: 22vw;
+  height: 30vh;
   font-size: 17px; }
 
 .second-info {
@@ -408,7 +423,7 @@ input:focus, textarea:focus {
 
 .logg {
   border: black solid 3px;
-  width: 22vw;
+  width: 400px;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -425,12 +440,14 @@ input:focus, textarea:focus {
   text-decoration: none; }
 
 .logg p {
-  padding-bottom: 20px; }
+  padding: 20px; }
 
 .reviews {
   border: black solid 3px;
   width: 22vw;
-  height: 400px; }
+  height: 400px;
+  display: flex;
+  flex-direction: column; }
 
 .map {
   padding-left: 2vw; }
@@ -438,10 +455,22 @@ input:focus, textarea:focus {
 @media only screen and (max-width: 600px) {
   .details {
     display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .restaurant-basic-info {
+    width: 80%;
+    display: flex;
     flex-direction: column; }
   .second-info {
+    width: 80%;
     display: flex;
-    flex-direction: column; } }
+    flex-direction: column;
+    align-items: center; }
+  .restaurant-img img {
+    width: 75vw;
+    padding: 1vw; }
+  .map {
+    padding: 1vw; } }
 
 .rest-list {
   background-image: url("/images/reservation-bg (1).jpg");

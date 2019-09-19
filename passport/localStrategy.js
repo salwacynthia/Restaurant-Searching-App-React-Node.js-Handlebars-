@@ -65,6 +65,7 @@ passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
   callbackURL: "https://hungryhackers.herokuapp.com/auth/facebook/callback"
+  //"localhost:3000/auth/facebook/callback"
 },
   (accessToken, refreshToken, profile, done) => {
     // find a user with profile.id as facebookId or create one
