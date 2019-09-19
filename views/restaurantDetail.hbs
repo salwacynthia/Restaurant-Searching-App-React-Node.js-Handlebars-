@@ -8,15 +8,21 @@
 <p>Latitude, Longitude: {{#each location.position }}{{this}}, {{/each}}</p>
 {{/with}}
 
+<div class="review-box">
 {{#with review}}
 <p>Review: {{> reviewPartial this}}</p>  
 {{!-- reviw.hbs ke partial banate hobe --}}
 {{/with}}
+</div>
 
-{{#with map}}
-<p>map: {{> mapPartial this}}</p>  
+{{!-- map --}}
+<form action="/map" method="GET">
+   <button class="map-box" type="submit" > <a href="map.js"></a> Direction</button>
+</form>
+{{!-- {{#with map}} --}}
+{{!-- <p>map: {{> mapPartial this}}</p>   --}}
 {{!-- reviw.hbs ke partial banate hobe --}}
-{{/with}}
+{{!-- {{/with}} --}}
 
 
 
