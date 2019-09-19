@@ -281,6 +281,7 @@ input:focus, textarea:focus {
   display: flex; }
 
 .restaurantlist {
+  min-height: 62vh;
   margin-left: 40px;
   margin-right: 40px;
   border: #131230;
