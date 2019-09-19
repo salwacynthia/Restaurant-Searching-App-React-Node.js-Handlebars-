@@ -673,7 +673,8 @@ font-size: 17px;
   height: 60px;
   width: 150px;
   border-radius: 14px;
-  font: 25px bold;
+  color: white;
+  font-size: 20px;
   // background-color: red;
 
 }
@@ -685,4 +686,13 @@ font-size: 17px;
   align-items: center;
   justify-items: center;
 
+}
+
+.game-page{
+  height: 98vh;
+}
+
+.game-header h5{
+  font-style: italic;
+  font-size: 27px !important;
 }

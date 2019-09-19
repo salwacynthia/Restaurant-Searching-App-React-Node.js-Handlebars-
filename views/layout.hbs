@@ -22,9 +22,13 @@
     <a href="/articles">Articles</a>
     <a href="/contact">Contact</a>
     <a href="/game">Game</a>
+    {{#if user}}
+    <a href="/dashboard">Dashboard</a>
+    <a href="/auth/logout">Logout</a>
+    {{else}}
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+    {{/if}}
   </nav>
 
   {{{body}}}

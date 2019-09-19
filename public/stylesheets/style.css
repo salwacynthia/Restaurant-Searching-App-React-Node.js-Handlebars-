@@ -518,7 +518,8 @@ input:focus, textarea:focus {
   height: 60px;
   width: 150px;
   border-radius: 14px;
-  font: 25px bold; }
+  color: white;
+  font-size: 20px; }
 
 .game-header {
   margin-top: 20px;
@@ -527,5 +528,12 @@ input:focus, textarea:focus {
   justify-content: center;
   align-items: center;
   justify-items: center; }
+
+.game-page {
+  height: 98vh; }
+
+.game-header h5 {
+  font-style: italic;
+  font-size: 27px !important; }
 
 /*# sourceMappingURL=style.css.map */

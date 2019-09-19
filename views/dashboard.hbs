@@ -1,0 +1,14 @@
+<div class="dashboard">
+  <h5>Hi {{user.username}}</h5>
+  {{#each reviews}}
+  <div>
+    <div>
+      <h6>{{username}}</h6> posted on {{date}}:
+      {{review}}<br>
+    </div>
+    <a href="/dashboard/review/{{_id}}">Delete</a>
+  </div>
+  {{else}}
+  <p>You have 0 reviews!</p>
+  {{/each}}
+</div>

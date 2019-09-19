@@ -91,4 +91,27 @@ router.get('/game', (req, res, next) => {
   res.render('game');
 });
 
+
+
+router.get('/dashboard', (req, res, next) => {
+  if (req.user === undefined) {
+    res.redirect('/auth/login');
+  } else {
+    Review.find({ username: req.user.username }, (error, reviews) => {
+      res.render('dashboard', { reviews });
+    });
+  }
+});
+
+router.get('/dashboard/review/:id', (req, res) => {
+  if (req.user === undefined) {
+    res.redirect('/auth/login');
+  } else {
+    const id = req.params.id;
+    Review.deleteOne({ '_id': id, username: req.user.username }, (error, review) => {
+      res.redirect('/dashboard');
+    });
+  }
+});
+
 module.exports = router;
