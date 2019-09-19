@@ -644,6 +644,9 @@ font-size: 17px;
   justify-content: center
 }
 
+
+//GAME
+
 .game {
   // background-color: #131230;
   margin: 100px;
@@ -695,4 +698,34 @@ font-size: 17px;
 .game-header h5{
   font-style: italic;
   font-size: 27px !important;
+}
+
+
+//USER AREA
+
+.dashboard {
+  min-height: 98vh;
+  background-image: url("/images/food-bg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.review-control {
+  padding: 25vh 3vw 3vh 9vw;
+}
+
+.each-review{
+  padding: 30px;
+}
+
+.review-control h5{
+  font-size: 30px !important;
+}
+
+.each-review h4{
+  font-size: 20px !important;
+}
+
+.each-review p{
+  font-size: 18px !important;
 }

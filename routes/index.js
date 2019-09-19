@@ -46,14 +46,21 @@ router.get("/restaurants/:restaurantID", (req, res) => {
     }).catch(err => console.log(err))
 
 });
+
 router.get('/review/:restaurantId', (req, res, next) => {
-  res.render('review');
+  axios.get(`https://places.cit.api.here.com/places/v1/places/${req.params.restaurantId};context=${context}?app_id=${appId}&app_code=${appCode}`)
+    .then(rest => {
+      res.render('review', { restaurantDetail: rest.data });
+    })
+    .catch((error) => {
+      res.render('review')
+    });
 });
 
 router.post('/review/:restaurantId', (req, res, next) => {
-  const { review } = req.body;
+  const { review, restaurantName } = req.body;
   const restaurantId = req.params.restaurantId;
-  const newReview = new Review({ restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
+  const newReview = new Review({ restaurantName: restaurantName, restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
   newReview.save()
     .then((review) => {
       res.redirect(`/restaurants/${restaurantId}`);
