@@ -9,17 +9,22 @@
 
 .main-navbar {
   background-color: white;
-  width: 90%;
+  width: 80%;
   height: 10vh;
   position: absolute;
     top: 15px;
-    right: 5vw;
+    right: 10vw;
   border-radius: 3px;
   display:flex;
   justify-content: flex-end;
   align-items: center;
 
 }
+
+.main-navbar img{
+  width: 19vw;
+  padding-right: 12vw
+} 
 
 .main-navbar a {
   color: #131230;
@@ -32,13 +37,38 @@
   text-decoration: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 1140px) and (min-width: 800px){
   .main-navbar{
     position: absolute;
+    // height: 15vh;
+    // display: flex;
+    // flex-direction: column;
   }
   .main-navbar a{
-    font-size: 8px;
+    font-size: 80%;
+    padding: 7px;
   }
+  .main-navbar img{
+    width: 17vw;
+    padding-right: 14vw
+  } 
+}
+
+@media screen and (max-width: 800px){
+  .main-navbar{
+    position: absolute;
+    // height: 15vh;
+    // display: flex;
+    // flex-direction: column;
+  }
+  .main-navbar a{
+    font-size: 80%;
+    padding: 7px;
+  }
+  .main-navbar img{
+    width: 16vw;
+    padding-right: 7vw
+  } 
 }
 
 body {
@@ -64,6 +94,24 @@ footer {
 //   font-weight: 700;
 //   font-style: italic
 // }
+
+.hungry-logo{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffb606;
+  font-size: 48px;
+  font-weight: 700;
+  
+}
+
+.hackers-logo{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffb606;
+  font-size: 44px;
+  font-weight: 300;
+  padding-right: 200px
+}
+
+
 h1 {
   color: rgb(255, 255, 255);
   font-family: "Playfair Display", serif;
@@ -127,7 +175,7 @@ input:focus, textarea:focus {
 }
 
 .container{
-  background-image: url("/images/bg-home.jpg"); 
+  background-image: url("/images/bg-home-big.jpg"); 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -229,6 +277,12 @@ input:focus, textarea:focus {
   padding: 10px
 }
 
+@media only screen and (max-width: 600px) {
+.article-total {
+  height: auto;
+}
+}
+
 
 //LOGIN PAGE
 
@@ -243,20 +297,24 @@ input:focus, textarea:focus {
   color: white;
   background-color: black;
   font-size: 14px;
-  width: 18vw;
-  height: 4vh;
+  // width: 18vw;
+  // height: 4vh;
   border-radius: 4px;
-  margin: 10px 0;
+  margin: 7px 0;
+  padding: 0.5vh 5vw;
+  text-decoration: none
 }
 
 .log-container .fb-btn{
   color: white;
   background-color: rgb(53, 89, 252);
   font-size: 14px;
-  width: 18vw;
-  height: 4vh;
+  // width: 18vw;
+  // height: 4vh;
   border-radius: 4px;
-  margin: 7px 0;
+  // margin: 17px 0;
+  padding: 0.5vh 4.3vw;
+  text-decoration: none
 }
 
 .log-img img{
@@ -388,6 +446,146 @@ input:focus, textarea:focus {
   }
 }
 
+//CONTACT
+
+.container-message {
+  background-image: url("/images/food-bg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: center
+}
+
+.contact-form {
+  background-color: rgba(255, 255, 255, 0.678);
+  margin-top: 200px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center
+}
+
+.form-btn {
+  width: 100%;
+  height: 4vh;
+  border-radius: 4px;
+  margin: 1px 0;
+  background-color: #ffb606;
+  color: white;
+  font-size: 14px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column
+}
+
+
+//RESTAURANT DETAIL
+
+.rest-detail {
+  // height: 98vh;
+  background-image: url("/images/reservation-bg (1).jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position-y: -260px;
+  
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30vh;
+}
+
+.restaurant-img img{
+  width: 22vw;
+}
+
+.restaurant-basic-info {
+padding-left: 2vw;
+width: 22vw;
+font-size: 17px;
+}
 
 
 
+.second-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  
+}
+
+.logg {
+  border: black solid 3px;
+  width: 22vw;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center
+}
+
+.logg a {
+  color: white;
+  background-color: #ffb060;
+  font-size: 14px;
+  // width: 18vw;
+  // height: 4vh;
+  border-radius: 4px;
+  // margin: 17px 0;
+  padding: 0.5vh 4.3vw;
+  text-decoration: none
+}
+
+.logg p{
+  padding-bottom: 20px;
+}
+
+.reviews {
+  border: black solid 3px;
+  width: 22vw;
+  height: 400px;
+}
+
+.map{
+  padding-left: 2vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+  }
+  .second-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+//RESTAURANT LIST
+
+.rest-list{
+  background-image: url("/images/reservation-bg (1).jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position-y: -260px;
+}
+
+.list {
+  height: 60vh;
+  width: 80vw;
+  justify-content: center
+}

@@ -5,9 +5,6 @@ const Restaurant = require('./restaurant')
 const Review = require('../models/Review')
 const Contact = require('../models/Contact')
 
-const url = require('url');
-
-
 const context = "Zmxvdy1pZD00NDliNzFmMi05NGIwLTUzMDItOWNmNC1mYjllNWE3ZTA4ZjJfMTU2ODc1Nzc4MDg3OV8yNTMyXzU4OTcmcmFuaz0xOQ";
 
 /* HOME PAGE */
@@ -16,7 +13,7 @@ router.get('/', (req, res, next) => {
 });
 
 const appId = process.env.APP_ID,  // .env file theke client id ar secret nicche
-appCode = process.env.APP_CODE;
+  appCode = process.env.APP_CODE;
 
 /* GET search page */
 // get all the restaurants in SERACH 
@@ -25,59 +22,55 @@ router.get("/restaurantlist", (req, res, next) => {
   let category = "eat-drink";
   // console.log(queryParameter);
   axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${queryParameter}`)
-      .then(rest => {
-        rest.data.results.items.forEach(el=>el.vicinity = el.vicinity.split("<br/>").join(", "))
-    res.render("restaurantList.hbs", { restaurantList: rest.data.results.items });
-  }).catch(err=>console.log(err))
+    .then(rest => {
+      rest.data.results.items.forEach(el => el.vicinity = el.vicinity.split("<br/>").join(", "))
+      res.render("restaurantList.hbs", { restaurantList: rest.data.results.items });
+    }).catch(err => console.log(err))
 });
 
 
 // // get a unique page for each restaurant by id
 router.get("/restaurants/:restaurantID", (req, res) => {
-const query = req.params.restaurantID;
-console.log('query:' + query)
+  const query = req.params.restaurantID;
+  console.log('query:' + query)
 
-// axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
-axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
-.then(rest => {
-  res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
-  console.log('promise:',rest.data.location.position)
-  }).catch(err=>console.log(err))
-   
- });
+  // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
+  axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
+    .then(rest => {
+      res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
+      console.log('promise:', rest.data.location.position)
+    }).catch(err => console.log(err))
 
- // access to map
+});
+
+// access to map
 router.get("/restaurants/:restaurantID", (req, res) => {
   const query = req.params.restaurantID;
   console.log('query:' + query)
-  
+
   // axios.get(`https://places.cit.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&at=52.5206,13.3889&q=${query}`)
   axios.get(`https://places.cit.api.here.com/places/v1/places/${query};context=${context}?app_id=${appId}&app_code=${appCode}`)
-  .then(rest => {
-    let coordinate = rest.data.location.position;
-    console.log('promise:',coordinate)
-    res.render("restaurantDetail.hbs", { restaurantDetail: rest.data });
-    }).catch(err=>console.log(err))
-     
-   });
-//  const val1 = 52.5233702;
-// const val2 = 13.3535779;
+    .then(rest => {
+      // console.log('promise:',rest)
+      Review.find({ restaurantId: query }, (error, review) => {
+        console.log(review);
+        res.render("restaurantDetail.hbs", { restaurantDetail: rest.data, review: review, loggedIn: req.user !== undefined, appCode, appId });
+      }).catch(err => res.render("restaurantDetail.hbs", { restaurantDetail: rest.data }))
 
-// const val3 = 52.5233702;
-// const val4 = 13.3535779;
+    }).catch(err => console.log(err))
 
-
-
-router.get('/review', (req, res, next) => {
+});
+router.get('/review/:restaurantId', (req, res, next) => {
   res.render('review');
 });
 
-router.post('/review', (req, res, next) => {
+router.post('/review/:restaurantId', (req, res, next) => {
   const { review } = req.body;
-  const newReview = new Review({ restaurantId: "restauranteId", username: req.user.username, review, date: new Date() })
+  const restaurantId = req.params.restaurantId;
+  const newReview = new Review({ restaurantId: restaurantId, username: req.user.username, review, date: new Date().toLocaleDateString('pt-BR') })
   newReview.save()
     .then((review) => {
-      res.redirect('restaurantDetail');
+      res.redirect(`/restaurants/${restaurantId}`);
     })
     .catch((error) => {
       console.log(error);
@@ -111,6 +104,5 @@ router.post('/contact', (req, res, next) => {
 router.get('/game', (req, res, next) => {
   res.render('game');
 });
-
 
 module.exports = router;
