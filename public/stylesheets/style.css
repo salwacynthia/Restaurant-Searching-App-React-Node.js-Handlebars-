@@ -43,7 +43,9 @@
 
 @media screen and (max-width: 800px) {
   .main-navbar {
-    position: absolute; }
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; }
   .main-navbar a {
     font-size: 80%;
     padding: 7px; }
@@ -202,7 +204,7 @@ input:focus, textarea:focus {
 
 .article-img {
   height: auto;
-  width: 20vw; }
+  width: 17vw; }
 
 .article-content {
   display: flex;
