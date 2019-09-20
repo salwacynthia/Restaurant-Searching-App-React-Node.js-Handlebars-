@@ -250,12 +250,11 @@ input:focus, textarea:focus {
   text-decoration: none; }
 
 .log-img img {
-  height: 40vh;
-  margin: 30px; }
+  width: 20vw; }
 
 .log-form {
   width: 20vw;
-  margin: 20px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -360,7 +359,7 @@ input:focus, textarea:focus {
   background-image: url("/images/food-bg.png");
   background-repeat: no-repeat;
   background-position: right;
-  height: 98vh;
+  min-height: 98vh;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -530,7 +529,7 @@ input:focus, textarea:focus {
   justify-items: center; }
 
 .game-page {
-  height: 98vh; }
+  min-height: 98vh; }
 
 .game-header h5 {
   font-style: italic;
@@ -543,7 +542,10 @@ input:focus, textarea:focus {
   background-position: right; }
 
 .review-control {
-  padding: 25vh 3vw 3vh 9vw; }
+  padding: 25vh 3vw 3vh 9vw;
+  background-color: rgba(255, 255, 255, 0.596);
+  width: 60vw;
+  min-height: 98vh; }
 
 .each-review {
   padding: 30px; }
